@@ -1,0 +1,70 @@
+
+{% if section.blocks.size > 0 %}<div class="slider-product-proposal">
+    <div class="slider-product-proposal__container">
+      <div class="slider-product-proposal__content">
+        <h2 class="slider-product-proposal__title">Produt title</h2>
+        <div class="slider-product-proposal__subtitle">Produt subtitle</div>
+      </div>
+      <div class="slider-product-proposal__slider">
+        <div class="slider-product-proposal__slider-list">
+          {% for block in section.blocks %}
+            {% if block.settings.proposal_product != blank %}
+              {% assign product = block.settings.proposal_product %}
+                <div class="slider-product-proposal__slider-item">
+                  <h4>{{product.title}}</h4>
+                </div>
+              {% endif %}        
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+{{ 'slick-style.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'jquery-3.6.3.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick(); 
+  })
+</script>
+<style>
+  body{
+    background-color: red;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Slider Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_margins",
+      "default": true,
+      "label": "t:sections.apps.settings.include_margins.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Proposal product",
+      "settings": [
+      {
+        "type": "product",
+        "id": "proposal_product",
+        "label": "Our proposal product"
+      }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider Products"
+    }
+  ]
+}
+{% endschema %}
