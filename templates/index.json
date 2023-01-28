@@ -1,5 +1,50 @@
 {
   "sections": {
+    "d4a447b8-32ec-46fc-a7bf-6b709c349607": {
+      "type": "section-slider-product",
+      "blocks": {
+        "93c05069-3291-4d55-b6c8-46e6d292eca1": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "juice-mockup"
+          }
+        },
+        "96bea19f-8074-4bcc-8c37-f7e2b99e95b5": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "cookies-with-vegan-cheese-and-chocolate"
+          }
+        },
+        "0e8531d8-4212-4b8f-b2bc-46b3cfeb7dcf": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "pink-chocolate"
+          }
+        },
+        "ed8d8cef-a203-4623-80e8-ab5cd73a4003": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "healthy-smoothies-box"
+          }
+        },
+        "b47b9174-a237-478a-af81-5cc9292dcd21": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "fit-to-cookies"
+          }
+        }
+      },
+      "block_order": [
+        "93c05069-3291-4d55-b6c8-46e6d292eca1",
+        "96bea19f-8074-4bcc-8c37-f7e2b99e95b5",
+        "0e8531d8-4212-4b8f-b2bc-46b3cfeb7dcf",
+        "ed8d8cef-a203-4623-80e8-ab5cd73a4003",
+        "b47b9174-a237-478a-af81-5cc9292dcd21"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -364,6 +409,7 @@
     }
   },
   "order": [
+    "d4a447b8-32ec-46fc-a7bf-6b709c349607",
     "image-with-text",
     "featured_collection",
     "slideshow",

@@ -2,8 +2,8 @@
 {% if section.blocks.size > 0 %}<div class="slider-product-proposal">
     <div class="slider-product-proposal__container">
       <div class="slider-product-proposal__content">
-        <h2 class="slider-product-proposal__title">Produt title</h2>
-        <div class="slider-product-proposal__subtitle">Produt subtitle</div>
+        <h2 class="slider-product-proposal__title">Most popular products</h2>
+        <div class="slider-product-proposal__subtitle">The most delicious and healthy food</div>
       </div>
       <div class="slider-product-proposal__slider">
         <div class="slider-product-proposal__slider-list">
@@ -11,7 +11,19 @@
             {% if block.settings.proposal_product != blank %}
               {% assign product = block.settings.proposal_product %}
                 <div class="slider-product-proposal__slider-item">
-                  <h4>{{product.title}}</h4>
+                  <a href="{{ product.url }}" class="slider-item__link"></a>
+                  <div class="slider-item__image">
+                    <img src="{{ product.featured_image | img_url: '700x' }}" alt="{{ product.featured_image.alt | default: product.title  }}" class="slider-item__picture" loading="lazy">
+                  </div>
+                  <h4 >{{product.title}}</h4>
+                  {% if product.content != blank %}
+                      <div class="slider-item__content"> <p>
+                        {{ product.content | strip_newlines  | truncate: 80, "..."  }} 
+                      </p> </div>                
+                  {% endif %}
+                  <div class="slider-item__price">
+                    {{ product.price | money_with_currency }}
+                  </div>
                 </div>
               {% endif %}        
           {% endfor %}
@@ -22,19 +34,39 @@
 {% endif %}
 
 
+
+
 {{ 'slick-style.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'jquery-3.6.3.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick(); 
+    $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
+      infinite: true,                   
+      slidesToShow: {{ section.settings.slider_items }},
+      slidesToScroll: 2,
+      speed: 1000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: {{ section.settings.slider_items_tab }},
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: {{ section.settings.slider_items_mob }},
+            slidesToScroll: 2
+          }
+        }
+      ]
+    }); 
   })
-</script>
-<style>
-  body{
-    background-color: red;
-  }
-</style>
+</script> 
+
+
 
 {% schema %}
 {
@@ -43,10 +75,41 @@
   "class": "section",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "include_margins",
-      "default": true,
-      "label": "t:sections.apps.settings.include_margins.label"
+      "type": "range",
+      "id": "slider_items",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Items per page",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "slider_items_tab",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Items per page",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "slider_items_mob",
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "label": "Items per page",
+      "default": 1
+    },
+    {
+      "type": "image_picker",
+      "id": "arrow_left",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "arrow_right",
+      "label": "Image"
     }
   ],
   "blocks": [
