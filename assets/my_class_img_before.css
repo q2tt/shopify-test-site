@@ -1,0 +1,23 @@
+.my_class_img_before::after{
+
+    content: '';
+    background: url(https://cdn.shopify.com/s/files/1/0702/5708/2689/files/415-4155726_gluten-free-logo-red-hd-png-download.jpg?v=1676649259) no-repeat center/contain;
+    width: 25%;
+    height: 25%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+@keyframes shake{
+    0% { transform: rotate(0deg);}
+    10% { transform: rotate(-15deg);}
+    20% { transform: rotate(15deg);}
+    30% { transform: rotate(-7deg);}
+    40% { transform: rotate(7deg);}
+    50% { transform: rotate(0deg);}
+}
+
+.card-wrapper:hover .my_class_img_before::after{
+    animation: shake 1.5s;
+}
