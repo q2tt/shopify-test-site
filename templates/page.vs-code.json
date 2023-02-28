@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 66,
+        "padding_bottom": 100
+      }
+    },
+    "announcement-bar-1": {
+      "type": "announcement-bar",
+      "settings": {
+        "padding_top": 66,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "announcement-bar-1"
+  ]
+}
