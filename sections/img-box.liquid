@@ -1,0 +1,61 @@
+<div class="page-width">
+  <h2>use snippets</h2>
+  <div style="border: 1px solid red; ">
+    {% render 'icons', icon: 'instagram' %}
+    {% render 'icons', icon: 'tiktok' %}
+
+  </div>
+  
+  {% if section.settings.get_img_v_1 != blank %}
+  <div>
+    section.settings.get_img_v_1 == {{ section.settings.get_img_v_1 }}
+    <br>
+    section.settings.get_img_v_1 | img_url: 'icon' == {{section.settings.get_img_v_1 | img_url: 'icon'}}
+    <br>
+    section.settings.get_img_v_1 | img_url: '33x' == {{section.settings.get_img_v_1 | img_url: '33x'}}
+  </div>
+  <div>
+    <img src="{{section.settings.get_img_v_1 | img_url: 'icon'}}" alt="{{section.settings.get_img_v_1.alt}}">
+    <br>
+    <img src="{{section.settings.get_img_v_1 | img_url: '500'}}" alt="{{section.settings.get_img_v_1.alt}}">
+    <br>
+    <img src="{{section.settings.get_img_v_1 | img_url: 'large'}}" alt="{{section.settings.get_img_v_1.alt}}">
+    <br>
+    <img src="{{section.settings.get_img_v_1 | img_url: 'icon'}}" alt="{{section.settings.get_img_v_1.alt}}">
+    <br>
+    {{section.settings.get_img_v_1 | img_url: '200x' | img_tag }}
+    <br>
+    {{section.settings.get_img_v_1 | image_url: width: 500 | image_tag: class: 'custom-class', loading: 'lazy'}}
+  </div>
+  {% endif %}
+  <div>
+    img
+    <img src="{{'img_dog.webp' | asset_url}}" alt="dog">
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image get links",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "get_img_v_1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "get_img_v_2",
+      "label": "Image withaut img"
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Image get links"
+    }
+  ]
+}
+{% endschema %}

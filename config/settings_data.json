@@ -213,6 +213,70 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "custom-announcement-bar": {
+        "type": "custom-announcement-bar",
+        "blocks": {
+          "15a749bf-f095-41e2-80b9-4a3a0b22b035": {
+            "type": "announcement",
+            "settings": {
+              "show-on-homepage": false,
+              "custom_announcent_bar_text": "default text",
+              "bold-text": true,
+              "font_size": 16,
+              "background-color": "#4999cf",
+              "font-color": "#ffffff",
+              "link": "",
+              "announcent_bar_text": "normal"
+            }
+          },
+          "a1880468-7a8f-4505-a88a-133e8af266c8": {
+            "type": "announcement",
+            "settings": {
+              "show-on-homepage": false,
+              "custom_announcent_bar_text": "lalall",
+              "bold-text": true,
+              "font_size": 16,
+              "background-color": "#972121",
+              "font-color": "#37974e",
+              "link": "shopify:\/\/policies\/refund-policy",
+              "announcent_bar_text": "normal"
+            }
+          },
+          "c3568893-75cc-45d1-897e-cd57af4432b6": {
+            "type": "announcement",
+            "settings": {
+              "show-on-homepage": false,
+              "custom_announcent_bar_text": "default text",
+              "bold-text": true,
+              "font_size": 16,
+              "background-color": "#ffffff",
+              "font-color": "#ffffff",
+              "link": "",
+              "announcent_bar_text": "normal"
+            }
+          },
+          "b19a2c3d-282f-43a6-ae58-4b46f68694d5": {
+            "type": "announcement",
+            "settings": {
+              "show-on-homepage": false,
+              "custom_announcent_bar_text": "lndlajn",
+              "bold-text": true,
+              "font_size": 16,
+              "background-color": "#5eab19",
+              "font-color": "#ec4572",
+              "link": "",
+              "announcent_bar_text": "uppercase"
+            }
+          }
+        },
+        "block_order": [
+          "15a749bf-f095-41e2-80b9-4a3a0b22b035",
+          "a1880468-7a8f-4505-a88a-133e8af266c8",
+          "c3568893-75cc-45d1-897e-cd57af4432b6",
+          "b19a2c3d-282f-43a6-ae58-4b46f68694d5"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": []

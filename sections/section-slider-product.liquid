@@ -2,8 +2,8 @@
 {% if section.blocks.size > 0 %}<div class="slider-product-proposal">
     <div class="slider-product-proposal__container">
       <div class="slider-product-proposal__content">
-        <h2 class="slider-product-proposal__title">Most popular products</h2>
-        <div class="slider-product-proposal__subtitle">The most delicious and healthy food</div>
+        <h2 class="slider-product-proposal__title">Produt title</h2>
+        <div class="slider-product-proposal__subtitle">Produt subtitle</div>
       </div>
       <div class="slider-product-proposal__slider">
         <div class="slider-product-proposal__slider-list">
@@ -15,10 +15,10 @@
                   <div class="slider-item__image">
                     <img src="{{ product.featured_image | img_url: '700x' }}" alt="{{ product.featured_image.alt | default: product.title  }}" class="slider-item__picture" loading="lazy">
                   </div>
-                  <h4 >{{product.title}}</h4>
+                  <h4>{{product.title}}</h4>
                   {% if product.content != blank %}
                       <div class="slider-item__content"> <p>
-                        {{ product.content | strip_newlines  | truncate: 80, "..."  }} 
+                        {{ product.content | truncate: 120, "..."  }} 
                       </p> </div>                
                   {% endif %}
                   <div class="slider-item__price">
@@ -43,29 +43,37 @@
   document.addEventListener("DOMContentLoaded", function() {
     $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
       infinite: true,                   
-      slidesToShow: {{ section.settings.slider_items }},
-      slidesToScroll: 2,
-      speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    speed: 300,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: {{ section.settings.slider_items_tab }},
+            slidesToShow: 3,
             slidesToScroll: 3,
+            infinite: true,
+            dots: true
           }
         },
         {
-          breakpoint: 576,
+          breakpoint: 600,
           settings: {
-            slidesToShow: {{ section.settings.slider_items_mob }},
+            slidesToShow: 2,
             slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
           }
         }
       ]
     }); 
   })
 </script> 
-
 
 
 {% schema %}
@@ -81,35 +89,7 @@
       "max": 5,
       "step": 1,
       "label": "Items per page",
-      "default": 4
-    },
-    {
-      "type": "range",
-      "id": "slider_items_tab",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "label": "Items per page",
       "default": 2
-    },
-    {
-      "type": "range",
-      "id": "slider_items_mob",
-      "min": 1,
-      "max": 2,
-      "step": 1,
-      "label": "Items per page",
-      "default": 1
-    },
-    {
-      "type": "image_picker",
-      "id": "arrow_left",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "arrow_right",
-      "label": "Image"
     }
   ],
   "blocks": [

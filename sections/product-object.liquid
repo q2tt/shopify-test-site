@@ -1,0 +1,54 @@
+<div class="product-collection">
+  {% if section.settings.collection != blank %}
+  {% assign collection = section.settings.collection %}
+  <h2 class="product-collection__title">{{collection.title}}</h2>
+  <p class="product-collection__types">{{collection.all_types |slice: 1, collection.all_types.size | join: ', '}} </p>
+  <div class="product-collection__items-box">
+
+    {% for product in collection.products %}
+    <div class="product-collection__item">
+      <a href="{{ product.url }}" class="product-collection__item-link">
+        <h4 class="product-collection__item-title">{{ product.title}}</h4>
+        <div class="product-collection__img-box">
+          <img class="product-collection__item-img" src="{{ product.featured_image | img_url: '250x'}}"
+            alt="product pictures">
+        </div>
+      </a>
+      <p class="product-collection__item-prise">{{ product.price | money_with_currency }}</p>
+      <p class="product-collection__item-desc">{{ product.description | truncate: 40, "..." }}</p>
+
+      {% if product.variants.size > 1 %}
+      <p class="product-collection__item-options"> {{product.options}}:</p>
+      <ul>
+        {% for variant in product.variants %}
+        <li class="product-collection__item-option">{{ variant.title }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+{
+"name": "Product object",
+"tag": "section",
+"class": "section page-width",
+"settings": [
+{
+"type": "collection",
+"id": "collection",
+"label": "Collection"
+}
+],
+
+"presets": [
+{
+"name": "Product object"
+}
+]
+}
+{% endschema %}

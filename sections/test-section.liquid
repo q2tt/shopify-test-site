@@ -1,0 +1,27 @@
+
+<div style="border: 1px solid blue;">
+  <h2>home work</h2>
+  <p> <span style="color: blueviolet;">Page id:</span>  {{page.id}}</p>
+  <p> <span style="color: blueviolet;">Data: </span> {{page.published_at}}</p>
+  <p> <span style="color: blueviolet;">Title: </span>{{page.title | upcase }}</p>
+  <p> <span style="color: blueviolet;">Url: </span> {{page.url | json}}</p>
+
+
+</div>
+
+{% schema %}
+{
+  "name": "Test section",
+  "tag": "section",
+  "class": "section page-width",
+  "settings": [
+  
+  ],
+  
+  "presets": [
+  {
+  "name": "Test section"
+  }
+  ]
+}
+{% endschema %}

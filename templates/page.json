@@ -3,12 +3,13 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 96,
+        "padding_bottom": 100
       }
     },
     "e4006dfc-a9d5-433b-a829-ff380177a249": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "heading_size": "h1",
