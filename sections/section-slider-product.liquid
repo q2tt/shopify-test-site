@@ -24,6 +24,10 @@
                   <div class="slider-item__price">
                     {{ product.price | money_with_currency }}
                   </div>
+                  <div class="slider-item__btns">
+                    <button class="button button-primery" data-ajax-add="{{product.selected_or_first_available_variant.id}}">ADD WITH AJAX</button>
+                    <button class="button button-primery">ADD WITH DAWN</button>
+                  </div>
                 </div>
               {% endif %}        
           {% endfor %}
@@ -72,6 +76,55 @@
         }
       ]
     }); 
+
+    $('#shopify-section-{{section.id}}').on('click', '[data-ajax-add]', function (e){
+      // Получаем идентификатор варианта (variant, item) и превращаем в type number
+      const itemId = parseInt($(this).attr('data-ajax-add'))
+      console.log(itemId)
+
+      // отправляем пост запрос на изменение количества товара
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      dataType: 'json',
+      data: {
+        // Если 0 - удаляет. если 1 и больше - меняет на заданную цифру
+          quantity: 1,
+          // itemId - должно быть всегда  type number
+          id: itemId
+      },
+      // Если запрос отправился удачно
+      success: function (data){
+        console.log(data)
+        // Удаляем блок с товаром
+       $('#cart-products-show').find('.cart-item[data-id="'+itemId+'"]').remove();
+       $('#shopify-section-cart-template').find('.cart__row[data-id="'+itemId+'"]').remove();
+        //Отправляем запрос на получение объекта корзины с сервера
+          $.ajax({
+              type: 'GET',
+              dataType: 'jsonp',
+              url: '/cart.json',
+              // Если удачно
+              success: function(cart){
+                console.log(cart, 'cart')
+                // Превращаем объект корзины в json объект
+               // jQuery.getJSON('/cart.js', function(cart) {
+                  // Получаем цену, обрабатываем ее.
+                 // var totalPriceRaw = cart.total_price / 100;
+                 //var totalPrice = currencyFormat(totalPriceRaw);
+                 // Меняем total price 
+                 //  $('#cart-products-total').html(totalPrice);
+               // })
+           // function currencyFormat(num) {
+          // return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').replace('.00','');
+        // }
+           
+          }
+        })
+    }
+
+  })
+    })
   })
 </script> 
 
