@@ -8,6 +8,28 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "Marketing scripts",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_marketing",
+        "label": "Enable marketing",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "facebook_id",
+        "label": "Facebook Id",
+        "default": "meta_shopify_2502"
+      },
+      {
+        "type": "html",
+        "id": "anothet script",
+        "label": "Another script"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
