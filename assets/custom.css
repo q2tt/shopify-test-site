@@ -114,6 +114,31 @@ ul.slick-dots li {
   display: none;
 }
 
+.slider-item__btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 0 0 0;
+}
+
+.slider-btn{
+  display: block;
+  width: 140px;
+  padding: 10px 5px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1094px){
+  .slider-item__btns{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slider-btn{
+   margin: 7px 0 0 0;
+  }
+
+}
 @media screen and (max-width: 576px) {
   .slick-slider .slick-arrow {
     background-color: rgba(255, 255, 255, 0);
@@ -130,5 +155,10 @@ ul.slick-dots li {
   }
   .slick-slider .slick-next {
     right: -28px;
+  }
+
+  .slider-item__btns{
+    display: flex;
+    flex-direction: column;
   }
 }

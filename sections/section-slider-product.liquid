@@ -25,7 +25,7 @@
                     {{ product.price | money_with_currency }}
                   </div>
                   <div class="slider-item__btns">
-                    <button class="button button-primery" data-ajax-add="{{product.selected_or_first_available_variant.id}}">ADD WITH AJAX</button>
+                    <button class="button button-primery slider-btn" data-ajax-add="{{product.selected_or_first_available_variant.id}}">ADD WITH AJAX</button>
 
                     {%- assign product_form_id = 'quick-add-' | append: section_id | append: product.id -%}
                     <product-form>
@@ -40,7 +40,7 @@
                           id="{{ product_form_id }}-submit"
                           type="submit"
                           name="add"
-                          class="quick-add__submit button button--full-width button--secondary"
+                          class="quick-add__submit button button--full-width button--secondary slider-btn"
                           aria-haspopup="dialog"
                           aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
                           aria-live="polite"
