@@ -1,0 +1,166 @@
+<div class="hw-schema-wrap page-width">
+  <h2 class="hw-schema-title">{{ section.settings.header }}</h2>
+  <p class="hw-schema-sub-title">{{ section.settings.sub-title }} </p>
+
+  {% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+  <div class="hw-schema-br">
+  <h5>{{block.settings.title}}</h5>
+  {% if block.settings.description %}
+  
+    <p>{{block.settings.description }}</p>
+  
+  {% endif %}
+
+  {% if block.settings.image_with_text_image %}
+  <img src="{{block.settings.image_with_text_image | img_url: block.settings.img_size}}"
+    alt="{{block.settings.image_with_text_image.alt}}">
+  {% endif %}
+  <br>
+
+  {% if block.settings.proposal_product%}
+  {{block.settings.proposal_product}}
+  <img class="" src="{{ block.settings.proposal_product.featured_image | img_url: 'small'}}" alt="product pictures">
+
+  {% endif %}
+</div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+
+{%- style -%}
+.hw-schema-wrap{
+background-color: {{ section.settings.background-color }} ;
+
+}
+
+.hw-schema-title{
+color: {{ section.settings.color }} ;
+}
+
+.hw-schema-br{
+width: 100%;
+border: 1px solid red;
+}
+{%- endstyle -%}
+
+
+{% schema %}
+
+{
+"name": "Home work schema",
+"tag": "section",
+"class": "section hw-schema",
+"settings": [
+{
+"type": "text",
+"id": "header",
+"label": "Header",
+"default": "Hallo my schema!"
+},
+{
+"type": "text",
+"id": "sub-title",
+"label": "Sub-title",
+"default": "It is sub-title!"
+},
+{
+"type": "color",
+"id": "background-color",
+"label": "Background color",
+"default": "#ffffff"
+},
+{
+"type": "color",
+"id": "color",
+"label": "Title color",
+"default": "#777777"
+}
+
+],
+"blocks": [
+{
+"name": "Block, title and desc",
+"type": "benefit",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Block title"
+},
+{
+"type": "text",
+"id": "description",
+"label": "Description text",
+"default": "Description text"
+}
+]
+} ,
+{
+"name": "Block, title and img",
+"type": "benefit2",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Block title"
+},
+{
+"type": "image_picker",
+"id": "image_with_text_image",
+"label": "Image"
+},
+{
+"type": "select",
+"id": "img_size",
+"label": "Img size",
+"options": [
+{
+"value": "thumb",
+"label": "thumb"
+},
+{
+"value": "small",
+"label": "small"
+},
+{
+"value": "compact",
+"label": "compact"
+},
+{
+"value": "medium",
+"label": "medium"
+},
+{
+"value": "large",
+"label": "large"
+},
+{
+"value": "grande",
+"label": "grande"
+}
+],
+"default": "compact"
+}
+]
+},
+{
+"type": "product",
+"name": "Proposal product",
+"settings": [
+{
+"type": "product",
+"id": "proposal_product",
+"label": "Our proposal product"
+}]
+}
+],
+"presets": [
+{
+"name": "Home Work Schema"
+}
+]
+}
+{% endschema %}
