@@ -1,5 +1,5 @@
-<div class="hw-schema-wrap page-width">
-  <h2 class="hw-schema-title">{{ section.settings.header }}</h2>
+<div class="hw-schema-wrap-{{ section.id }} page-width">
+  <h2 class="hw-schema-title-{{ section.id }}">{{ section.settings.header }}</h2>
   <p class="hw-schema-sub-title">{{ section.settings.sub-title }} </p>
 
   {% if section.blocks.size > 0 %}
@@ -31,12 +31,12 @@
 
 
 {%- style -%}
-.hw-schema-wrap{
+.hw-schema-wrap-{{ section.id }}{
 background-color: {{ section.settings.background-color }} ;
 
 }
 
-.hw-schema-title{
+.hw-schema-title-{{ section.id }}{
 color: {{ section.settings.color }} ;
 }
 
