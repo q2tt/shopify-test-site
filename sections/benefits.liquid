@@ -1,0 +1,85 @@
+<div class="benefits-wrap">
+  {%- for block in section.blocks -%}
+    {% render block %}
+    <div class="benefit">
+      {% if block.settings.content_title != blank%}
+        <div class="benefit__title">
+          {{block.settings.content_title }}
+        </div>
+      {% endif %}
+      {% if block.settings.content_image != blank%}
+        <div class="">
+          <img src="{{ block.settings.content_image  | img_url: 'large' }}" class="benefit__img" alt="{{ block.settings.content_image.alt }}" > 
+        
+        </div>
+      {% endif %}
+    </div>
+  {%- endfor -%}
+</div>
+
+
+<style>
+  .benefits-wrap{
+    max-width: var(--page-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .benefit{
+    display: block;
+    max-width: 200px;
+    text-align: center;
+    justify-content: center;
+  }
+  @media (max-width: 790px) {
+    .benefits-wrap{
+    max-width: var(--page-width);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .benefit{
+  width: 50%;
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "t:sections.apps.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_margins",
+      "default": true,
+      "label": "t:sections.apps.settings.include_margins.label"
+    }
+  ],
+  "blocks": [
+  {
+    "name": "Benefit",
+    "type": "benefit",
+    "settings": [
+    {
+      "type": "text",
+      "id": "content_title",
+      "label": "Heading",
+      "default": "Content title"
+    },
+    ,
+    {
+      "type": "image_picker",
+      "id": "content_image",
+      "label": "Image"
+    }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "Benefits"
+    }
+  ]
+}
+{% endschema %}
