@@ -1,0 +1,91 @@
+
+<div class="wrapper">
+  {% if section.settings.title != blank %}
+  <h2>{{section.settings.title}}</h2>
+  {% endif %}
+  
+  {% for for block in section.blocks%}
+  <div class="faq__body">
+    <details aria-expanded="true" class="faq__panel" open>
+        <summary class="faq__label">{{}}</summary>
+        <div class="faq__panel-body">
+        <p class="faq__panel-answer">{{}}</p>
+        </div>
+    </details>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .container{
+    max-width: 980px;
+    margine-inline: auto;
+    padding: 100px 15px;
+    
+}
+.faq_header-title{
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.faq__panel{
+    padding: 7px 21px;
+    margin-bottom: 24px;
+    border: 1px solid #777e91;
+    border-radius: 7px;
+}
+.faq__label{
+    padding-block: 7px;
+    color: #f4f5f6;
+    cursor: pointer;
+}
+.faq__panel-answer{
+    color: #777e91;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+
+
+</style>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Heading",
+    "default": "Title"
+  }
+   
+  ],
+  "blocks": [
+  {
+    "name": "Question",
+    "type": "question",
+    "settings": [
+    {
+      "type": "text",
+      "id": "content_title",
+      "label": "Heading",
+      "default": "Content title"
+    },
+    
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}
