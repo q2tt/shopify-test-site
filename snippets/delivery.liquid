@@ -1,0 +1,53 @@
+<div class="estimated-box">
+  <p> <img src="https://cdn.shopify.com/s/files/1/0690/9067/2952/files/calendar-icon-png-2.webp?v=1671553121" style="height:25px;float:left;margin-right:10px;padding-bottom: 4px;"/>
+  Get between <strong><span id="fromDate"></span> - <span id="toDate"></span></strong></p>
+  <p> <img src="https://cdn.shopify.com/s/files/1/0690/9067/2952/files/1670915.png?v=1671553121" style="height:25px;float:left;margin-right:10px;padding-bottom: 4px;"/>
+  <span>Shipping time by USPS 2-4 working days{% if product.metafields.custom.free_shipping_days != blank %}
+                                {{ product.metafields.custom.free_shipping_days }}
+                            {% else %}
+                              
+                            {% endif %}
+              </span></p>
+</div>
+
+{{ '//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js' | script_tag }}
+  
+<style>
+.estimated-box {
+  padding: 5px;
+  border: 1px solid #58787f;
+  margin-bottom: 20px;
+  border-radius: 7px;ca
+}
+  
+.estimated-box p {
+  margin: 0px;
+  padding: 5px;
+}
+
+  
+</style>
+
+<script> 
+
+var fromDate = Date.today().addDays({% if product.metafields.custom.estimated_delivery_date_min != blank %}
+                                      {{ product.metafields.custom.estimated_delivery_date_min }}
+                                    {% else %}
+                                      2
+                                    {% endif %}
+                                   );
+if (fromDate.is().saturday() || fromDate.is().sunday()) {
+fromDate = fromDate.next().monday();
+}
+var toDate = Date.today().addDays({% if product.metafields.custom.estimated_delivery_date_max != blank %}
+                                      {{ product.metafields.custom.estimated_delivery_date_max }}
+                                    {% else %}
+                                      4
+                                    {% endif %}
+                                   );
+if (toDate.is().saturday() || toDate.is().sunday()) {
+toDate = toDate.next().monday();
+}
+document.getElementById('fromDate').innerHTML = fromDate.toString('MMM dS');
+document.getElementById('toDate').innerHTML = toDate.toString('MMM dS');
+</script>
