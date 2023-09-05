@@ -1,0 +1,152 @@
+
+<div class="presentation__wrap">
+  {% if  section.blocks.size > 0  %}
+  {% for block in section.blocks%}
+  
+    {% if block.type == 'contant' %}
+      <div class="presentation__content-box">
+        {% if block.settings.content_title != blank  %}
+        <h4>{{block.settings.content_title}}</h4>
+        {% endif %}
+        {% if block.settings.paragraph != blank  %}
+        <p class="presentation__paragraph">{{block.settings.paragraph}}</p>
+        {% endif %}
+        {% if block.settings.content_image != blank  %}
+        <img src="{{ block.settings.content_image  | img_url: 'large' }}" class="presentation__img" alt="{{ block.settings.content_image.alt }}" > 
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if block.type == 'links'  %}
+        {% assign menu = block.settings.menu %}
+        {% if menu.links.size > 0 %}
+        <ul>
+          {% for link in menu.links %}
+          <li>
+            <a href="{{link.url}}">{{link.title}}</a>
+            {% if link.links.size > 0 %}
+            <ul>
+              {% for child_link in link.links %}
+              <li>
+                <a href="{{child_link.url}}">{{child_link.title}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+          
+        {% endif %}
+      
+    {% endif %}
+  {% endfor %}
+    
+  {% endif %}
+</div>
+
+{%- style -%}
+   .presentation__wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  #shopify-section-{{section.id}} .presentation__content-box{
+    width: 50%;
+    color: {{ block.paragraph_text}} ;
+    
+  }
+ .presentation__paragraph{
+    color: {{ block.paragraph_text}} ;
+  }
+  .presentation__img{
+    width: 100%;
+    height: auto;
+
+  }
+  {%- endstyle -%}
+
+{% schema %}
+{
+  "name": "hw | section, settings",
+  "tag": "section",
+  "class": "section page-width",
+  "settings": [
+    
+  ],
+  "blocks": [
+  {
+    "name": "Content",
+    "type": "contant",
+    "settings":[
+    {
+      "type": "text",
+      "id": "content_title",
+      "label": "Heading",
+      "default": "Content title"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "type": "header",
+      "content": "Change styles"
+    },
+    {
+      "type": "color",
+      "id": "paragraph_text",
+      "label": "Paragraph text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Change styles"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_image",
+      "label": "Image"
+    }
+    ]
+  },
+  {
+    
+    "name": "links",
+    "type": "links",
+    "settings":[{
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "type": "color",
+      "id": "txt_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#000000"
+    }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "section with settings"
+    }
+  ]
+}
+{% endschema %}
+
+

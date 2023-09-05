@@ -34,10 +34,54 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "6eae4dd6-5c96-4222-ae20-dfdbff6b1fd8": {
+      "type": "test-section",
+      "disabled": true,
+      "settings": {
+        "home_welcome_message": "Welcome to my shop!",
+        "paragraph": "<h1>It is <em>paragraf <\/em><\/h1><ul><li><h1>22<\/h1><\/li><\/ul><p>dadada<\/p>",
+        "inline": "my <em>inline<\/em> text  <em>for<\/em> this page",
+        "battery_message": "{% if product.tags contains 'battery' %}This product can only be shipped by ground.{% else %}This product can be shipped by ground or air.{% endif %}",
+        "font_size": 17,
+        "products_per_page": 7,
+        "product": "fresh-juice-hi-ty",
+        "product_description_video": "https:\/\/www.youtube.com\/watch?v=FkS1yLFbC-E"
+      }
+    },
+    "ec73056d-2289-4900-8fbe-91299083dd7a": {
+      "type": "hw-section-with-settings",
+      "blocks": {
+        "919bf5f4-3441-44cd-9180-3012230e9401": {
+          "type": "contant",
+          "settings": {
+            "content_title": "New Vegan (and Gluten-Free) Cookie",
+            "paragraph": "<p>dc <a href=\"\/collections\/cookies\" title=\"Cookies\">more cookies<\/a><\/p>",
+            "paragraph_text": "#18866e",
+            "btn_color": "#e22120",
+            "content_image": "shopify:\/\/shop_images\/e1428edae5621535da21c3bac1f7687211e0cdef.jpg"
+          }
+        },
+        "46411132-5494-4d52-b620-078d325fe2a7": {
+          "type": "links",
+          "settings": {
+            "menu": "main-menu",
+            "txt_color": "#000000",
+            "bg_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "919bf5f4-3441-44cd-9180-3012230e9401",
+        "46411132-5494-4d52-b620-078d325fe2a7"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "e4006dfc-a9d5-433b-a829-ff380177a249"
+    "e4006dfc-a9d5-433b-a829-ff380177a249",
+    "6eae4dd6-5c96-4222-ae20-dfdbff6b1fd8",
+    "ec73056d-2289-4900-8fbe-91299083dd7a"
   ]
 }

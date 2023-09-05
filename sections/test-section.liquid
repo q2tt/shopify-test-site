@@ -1,10 +1,37 @@
 
 <div style="border: 1px solid blue;">
-  <h2>home work</h2>
+  <h2>home work la</h2>
+  <p>{{section.settings.header}}</p>
+  <p style="color: rgb(56, 195, 219);">textarea</p>
+  <p>{{section.settings.home_welcome_message}}</p>
+  <p style="color: rgb(56, 195, 219);">richtext</p>
+  <p>{{section.settings.paragraph}}</p>
+  <p style="color: rgb(56, 195, 219);">inline_richtext</p>
+  <p>{{section.settings.inline}}</p>
+  <p style="color: rgb(56, 195, 219);">liguid</p>
+  <p>{{section.settings.battery_message}}</p>
+  <p style="color: rgb(56, 195, 219);">richtext</p>
+  <p>{{section.settings.battery_message}}</p>
+
+  <p style="color: rgb(56, 195, 219);">number</p>
+  <p>{{section.settings.products_per_page}}</p>
+
+  <p style="color: rgb(56, 195, 219);">range</p>
+  <p>{{section.settings.font_size}}</p>
+
+  <p style="color: rgb(56, 195, 219);">product</p>
+  <p>{{section.settings.product.title}}</p>
+
+  <p style="color: rgb(56, 195, 219);">video_url</p>
+  <p>{{section.settings.product.product_description_video}}</p>
+
+  <p style="color: rgb(56, 195, 219);">richtext</p>
+
   <p> <span style="color: blueviolet;">Page id:</span>  {{page.id}}</p>
   <p> <span style="color: blueviolet;">Data: </span> {{page.published_at}}</p>
   <p> <span style="color: blueviolet;">Title: </span>{{page.title | upcase }}</p>
   <p> <span style="color: blueviolet;">Url: </span> {{page.url | json}}</p>
+  {% render 'price' %}
 
 
 </div>
@@ -15,7 +42,77 @@
   "tag": "section",
   "class": "section page-width",
   "settings": [
-  
+    {
+      "type": "header",
+      "content": "Announcement bar | header"
+    },
+    {
+      "type": "paragraph",
+      "content": "Paragraph, link: [my link](https://www.youtube.com/watch?v=FkS1yLFbC-E)."
+    },
+    {
+      "type": "textarea",
+      "id": "home_welcome_message",
+      "label": "Welcome message",
+      "default": "Welcome to my shop!"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "inline",
+      "default": "my <i>inline</i> <b>text</b>",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "liquid",
+      "id": "battery_message",
+      "label": "Battery message",
+      "default": "{% if product.tags contains 'battery' %}This product can only be shipped by ground.{% else %}This product can be shipped by ground or air.{% endif %}"
+    },
+    {
+      "type": "paragraph",
+      "content": "==============================="
+    },
+    
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "default": 20
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "A Shopify-hosted video"
+    },
+    {
+      "type": "video_url",
+      "id": "product_description_video",
+      "label": "Product description video",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    }
   ],
   
   "presets": [

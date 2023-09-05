@@ -1,5 +1,95 @@
 {
   "sections": {
+    "7144942e-22fa-446d-b101-a24436d2a167": {
+      "type": "hw-schema",
+      "blocks": {
+        "7265b4c5-d36a-417a-93f8-90b96b02bf6a": {
+          "type": "benefit",
+          "settings": {
+            "title": "It's block title",
+            "description": "It's block description"
+          }
+        },
+        "e9b8f3d1-fd56-4ee7-ad0a-66a3bafdcc30": {
+          "type": "benefit2",
+          "settings": {
+            "title": "Images block",
+            "image_with_text_image": "shopify:\/\/shop_images\/lime-splash-water-ice-isolated-white-lime-water-splash-138708052.jpg",
+            "img_size": "medium"
+          }
+        },
+        "1fb8ca58-3fa5-4d2c-b3b8-c29a6a0690d7": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "dark-chocolate-lily"
+          }
+        },
+        "1358cda0-442b-4791-955b-fee0b3cc0f9f": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "mango-drink"
+          }
+        },
+        "f1a7838c-f21c-4e8c-af00-354a59d88bf0": {
+          "type": "benefit2",
+          "settings": {
+            "title": "images block",
+            "image_with_text_image": "shopify:\/\/shop_images\/image_body_1.png",
+            "img_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "7265b4c5-d36a-417a-93f8-90b96b02bf6a",
+        "e9b8f3d1-fd56-4ee7-ad0a-66a3bafdcc30",
+        "1fb8ca58-3fa5-4d2c-b3b8-c29a6a0690d7",
+        "1358cda0-442b-4791-955b-fee0b3cc0f9f",
+        "f1a7838c-f21c-4e8c-af00-354a59d88bf0"
+      ],
+      "settings": {
+        "header": "Hallo my schema!",
+        "sub-title": "It is sub-title!",
+        "background-color": "#1d32ab",
+        "color": "#e1318f"
+      }
+    },
+    "1b5cb329-9e05-443e-81dc-c7fed1d954ec": {
+      "type": "schema-settings-blocks",
+      "blocks": {
+        "508c975e-1a2c-4b16-a2c5-4f400a68c374": {
+          "type": "benefit",
+          "settings": {
+            "title": "",
+            "benefit_1": "benefit text 1m",
+            "benefit_2": "benefit text 2",
+            "benefit_3": "benefit text 3",
+            "benefit_4": "benefit text 4",
+            "benefit_5": "",
+            "benefit_6": "benefit text 6"
+          }
+        },
+        "67a4614a-93ce-414b-a5d4-a17a1d635a8a": {
+          "type": "benefit",
+          "settings": {
+            "title": "",
+            "benefit_1": "benefit text 1",
+            "benefit_2": "benefit text 2",
+            "benefit_3": "benefit text 3",
+            "benefit_4": "benefit text 4",
+            "benefit_5": "",
+            "benefit_6": "benefit text 6"
+          }
+        }
+      },
+      "block_order": [
+        "508c975e-1a2c-4b16-a2c5-4f400a68c374",
+        "67a4614a-93ce-414b-a5d4-a17a1d635a8a"
+      ],
+      "settings": {
+        "title": "Benefit titlemvv",
+        "description": "<p>Our benfit description oallalaa<\/p>"
+      }
+    },
     "d4a447b8-32ec-46fc-a7bf-6b709c349607": {
       "type": "section-slider-product",
       "blocks": {
@@ -429,9 +519,53 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "cb9155cb-4c57-46ca-8304-f42e02410259": {
+      "type": "hw-schema",
+      "settings": {
+        "header": "дфддф",
+        "sub-title": "It is sub-title!",
+        "background-color": "#5bcc2b",
+        "color": "#7d31e1"
+      }
+    },
+    "fb9936db-7a40-4a61-a2a9-ae4dc4080291": {
+      "type": "section-slider-product",
+      "blocks": {
+        "476cf426-2b30-4a7a-9582-9a033468d191": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "fit-to-cookies"
+          }
+        },
+        "33d4e7a2-40e6-4204-b31d-417699ab5dbd": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "healthy-smoothies-box"
+          }
+        }
+      },
+      "block_order": [
+        "476cf426-2b30-4a7a-9582-9a033468d191",
+        "33d4e7a2-40e6-4204-b31d-417699ab5dbd"
+      ],
+      "settings": {
+        "slider_items": 3
+      }
+    },
+    "ac35ba4e-7cf2-4173-8dc2-24ec5ecb6320": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "ha\n<div id=\"3c0067745496437287502ffa3adcb3a4\"><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
+    "7144942e-22fa-446d-b101-a24436d2a167",
+    "1b5cb329-9e05-443e-81dc-c7fed1d954ec",
     "d4a447b8-32ec-46fc-a7bf-6b709c349607",
     "image-with-text",
     "featured_collection",
@@ -443,6 +577,9 @@
     "featured-collection-1",
     "d492febe-c2da-4b93-8aca-c2d80935d355",
     "7495f9f3-bdc9-4ba7-b965-29e85bb95e23",
-    "14cd7710-fdd0-4f25-b1b5-6140c9cf0ce3"
+    "14cd7710-fdd0-4f25-b1b5-6140c9cf0ce3",
+    "cb9155cb-4c57-46ca-8304-f42e02410259",
+    "fb9936db-7a40-4a61-a2a9-ae4dc4080291",
+    "ac35ba4e-7cf2-4173-8dc2-24ec5ecb6320"
   ]
 }
